@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\MascotaGHCl.App.Dominio\MascotaGHCl.App.Dominio.csproj" />
+    <ProjectReference Include="..\MascotaGHCl.App.Persistencia\MascotaGHCl.App.Persistencia.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="PostClean" AfterTargets="Clean">
+    <RemoveDir Directories="$(BaseIntermediateOutputPath)" /><!-- rm en obj -->
+    <RemoveDir Directories="$(BaseOutputPath)" /><!-- rm en bin -->
+    <Message Text="Limpieza completa" Importance="high"></Message>
+  </Target>
+
+</Project>

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="PostClean" AfterTargets="Clean">
+    <RemoveDir Directories="$(BaseIntermediateOutputPath)" /><!-- rm en obj -->
+    <RemoveDir Directories="$(BaseOutputPath)" /><!-- rm en bin -->
+    <Message Text="Limpieza completa" Importance="high"></Message>
+  </Target>
+
+</Project>
